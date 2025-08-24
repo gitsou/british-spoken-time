@@ -1,8 +1,6 @@
 package org.jacekziemianski.bst;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,17 +11,30 @@ public class Main {
 //            System.out.println(time);
             var elements = args[0].split(":");
             if (elements.length == 2) {
-                int hour = Integer.parseInt(elements[0]);
-                int minutes = Integer.parseInt(elements[1]);
-
-                // validate
-                var bst = new BritishSpokenTime(hour, minutes);
+                var bst = getBritishSpokenTime(elements);
                 System.out.println(bst);
 
                 return;
             }
-            return;
         }
         System.out.println("Description");
+    }
+
+    private static BritishSpokenTime getBritishSpokenTime(String[] elements) {
+        int hour = Integer.parseInt(elements[0]);
+        int minute = Integer.parseInt(elements[1]);
+
+        List<OutputRule> outputRules = List.of(
+                new SpecialHourRule(),
+                new HourRule(),
+                new QuarterPastRule(),
+                new QuarterToRule(),
+                new HalfHourRule(),
+                new MinutePastRule(),
+                new MinuteToRule(),
+                new DefaultRule()
+        );
+
+        return new BritishSpokenTime(outputRules, hour, minute);
     }
 }

@@ -1,10 +1,13 @@
 package org.jacekziemianski.bst;
 
+import java.util.List;
+
 public class BritishSpokenTime {
     private final int hour;
-    private final int minutes;
+    private final int minute;
     private final String output;
-    private final String[] hoursWords = {
+    private final List<OutputRule> outputRules;
+    private final String[] hourWords = {
             "midnight",
             "one",
             "two",
@@ -19,7 +22,7 @@ public class BritishSpokenTime {
             "eleven",
             "noon"
     };
-    private final String[] minutesWords = {
+    private final String[] minuteWords = {
             "zero",
             "one",
             "two",
@@ -82,38 +85,36 @@ public class BritishSpokenTime {
             "fifty-nine"
     };
 
-    public BritishSpokenTime(int hour, int minutes) {
+    public BritishSpokenTime(List<OutputRule> outputRules, int hour, int minute) {
+        this.outputRules = outputRules;
         this.hour = hour;
-        this.minutes = minutes;
+        this.minute = minute;
         this.output = generateOutput();
     }
 
-    private String generateOutput() {
-        String result = "";
-        if (minutes == 0) {
-            result = hoursWords[hour];
+    public int getHour() {
+        return hour;
+    }
 
-            if (hour != 0 && hour != 12) {
-                result += " o'clock";
-            }
-        } else if (minutes % 15 == 0) {
-            if (minutes == 15) {
-                result = "quarter past " + hoursWords[hour];
-            } else if (minutes == 45) {
-                result = "quarter to " + hoursWords[(hour + 1) % 12];
-            } else {
-                result = "half past " + hoursWords[hour];
-            }
-        } else if (minutes % 5 == 0) {
-            if (minutes < 30) {
-                result = minutesWords[minutes] + " past " + hoursWords[hour];
-            } else {
-                result = minutesWords[(30 - (minutes - 30)) % 60] + " to " + hoursWords[(hour + 1) % 12];
-            }
-        } else {
-            result = hoursWords[(hour)] + " " + minutesWords[minutes];
-        }
-        return result;
+    public int getMinute() {
+        return minute;
+    }
+
+    public String[] getHourWords() {
+        return hourWords;
+    }
+
+    public String[] getMinuteWords() {
+        return minuteWords;
+    }
+
+
+    public String generateOutput() {
+        return outputRules.stream()
+                .filter(s -> s.appliesTo(this))
+                .findFirst()
+                .map(s -> s.generate(this))
+                .orElse("Default output");
     }
 
     @Override
