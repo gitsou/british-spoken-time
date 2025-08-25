@@ -8,6 +8,6 @@ public class HalfHourRule implements OutputRule {
 
     @Override
     public String generate(BritishSpokenTime bst) {
-        return "half past " + bst.getHourWords()[bst.getHour()];
+        return "half past " + NumbersToWords.getHourWord(bst.getHour());
     }
 }

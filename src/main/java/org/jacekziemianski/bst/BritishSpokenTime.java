@@ -7,83 +7,6 @@ public class BritishSpokenTime {
     private final int minute;
     private final String output;
     private final List<OutputRule> outputRules;
-    private final String[] hourWords = {
-            "midnight",
-            "one",
-            "two",
-            "three",
-            "four",
-            "five",
-            "six",
-            "seven",
-            "eight",
-            "nine",
-            "ten",
-            "eleven",
-            "noon"
-    };
-    private final String[] minuteWords = {
-            "zero",
-            "one",
-            "two",
-            "three",
-            "four",
-            "five",
-            "six",
-            "seven",
-            "eight",
-            "nine",
-            "ten",
-            "eleven",
-            "twelve",
-            "thirteen",
-            "fourteen",
-            "fifteen",
-            "sixteen",
-            "seventeen",
-            "eighteen",
-            "nineteen",
-            "twenty",
-            "twenty-one",
-            "twenty-two",
-            "twenty-three",
-            "twenty-four",
-            "twenty-five",
-            "twenty-six",
-            "twenty-seven",
-            "twenty-eight",
-            "twenty-nine",
-            "thirty",
-            "thirty-one",
-            "thirty-two",
-            "thirty-three",
-            "thirty-four",
-            "thirty-five",
-            "thirty-six",
-            "thirty-seven",
-            "thirty-eight",
-            "thirty-nine",
-            "forty",
-            "forty-one",
-            "forty-two",
-            "forty-three",
-            "forty-four",
-            "forty-five",
-            "forty-six",
-            "forty-seven",
-            "forty-eight",
-            "forty-nine",
-            "fifty",
-            "fifty-one",
-            "fifty-two",
-            "fifty-three",
-            "fifty-four",
-            "fifty-five",
-            "fifty-six",
-            "fifty-seven",
-            "fifty-eight",
-            "fifty-nine"
-    };
 
     public BritishSpokenTime(List<OutputRule> outputRules, int hour, int minute) {
         this.outputRules = outputRules;
@@ -100,21 +23,12 @@ public class BritishSpokenTime {
         return minute;
     }
 
-    public String[] getHourWords() {
-        return hourWords;
-    }
-
-    public String[] getMinuteWords() {
-        return minuteWords;
-    }
-
-
     public String generateOutput() {
         return outputRules.stream()
                 .filter(s -> s.appliesTo(this))
                 .findFirst()
                 .map(s -> s.generate(this))
-                .orElse("Default output");
+                .orElse("No rules where found to generate correct output");
     }
 
     @Override

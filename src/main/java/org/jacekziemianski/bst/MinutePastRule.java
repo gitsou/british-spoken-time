@@ -8,6 +8,6 @@ public class MinutePastRule implements OutputRule {
 
     @Override
     public String generate(BritishSpokenTime bst) {
-        return bst.getMinuteWords()[bst.getMinute()] + " past " + bst.getHourWords()[bst.getHour()];
+        return NumbersToWords.getMinuteWord(bst.getMinute()) + " past " + NumbersToWords.getHourWord(bst.getHour());
     }
 }

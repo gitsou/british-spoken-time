@@ -9,6 +9,6 @@ public class SpecialHourRule implements OutputRule {
 
     @Override
     public String generate(BritishSpokenTime bst) {
-        return bst.getHourWords()[bst.getHour()];
+        return NumbersToWords.getHourWord(bst.getHour());
     }
 }

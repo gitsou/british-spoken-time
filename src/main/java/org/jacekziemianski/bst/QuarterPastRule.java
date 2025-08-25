@@ -8,6 +8,6 @@ public class QuarterPastRule implements OutputRule {
 
     @Override
     public String generate(BritishSpokenTime bst) {
-        return "quarter past " + bst.getHourWords()[bst.getHour()];
+        return "quarter past " + NumbersToWords.getHourWord(bst.getHour());
     }
 }

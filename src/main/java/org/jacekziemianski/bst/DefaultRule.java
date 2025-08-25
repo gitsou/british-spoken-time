@@ -8,6 +8,6 @@ public class DefaultRule implements OutputRule {
 
     @Override
     public String generate(BritishSpokenTime bst) {
-        return bst.getHourWords()[bst.getHour()] + " " + bst.getMinuteWords()[bst.getMinute()];
+        return NumbersToWords.getHourWord(bst.getHour()) + " " + NumbersToWords.getMinuteWord(bst.getMinute());
     }
 }
