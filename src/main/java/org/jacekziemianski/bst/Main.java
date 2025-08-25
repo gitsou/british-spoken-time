@@ -2,22 +2,34 @@ package org.jacekziemianski.bst;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Main {
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
-        if (args.length > 0) {
+        try {
+            if (args.length > 0) {
 //            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
 //            TemporalAccessor ta = timeFormatter.parse(String.join(" ", args));
 //            LocalTime time = LocalTime.from(ta);
 //            System.out.println(time);
-            var elements = args[0].split(":");
-            if (elements.length == 2) {
-                var bst = getBritishSpokenTime(elements);
-                System.out.println(bst);
+                var elements = args[0].split(":");
+                if (elements.length == 2) {
+                    var bst = getBritishSpokenTime(elements);
+                    System.out.println(bst);
 
-                return;
+                    return;
+                }
             }
+            System.out.println("Description");
+
+        } catch (Exception e) {
+            log.error("Exception", e);
+            System.err.println("Unexpected error, please check logs for some details.");
+            System.exit(1);
         }
-        System.out.println("Description");
     }
 
     private static BritishSpokenTime getBritishSpokenTime(String[] elements) {
