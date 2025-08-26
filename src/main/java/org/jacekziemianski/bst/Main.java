@@ -10,6 +10,20 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a", Locale.ENGLISH);
+//
+//
+//            String[] inputs = {
+//                    "12:00 noon",
+//                    "12:00 midnight",
+//                    "03:15 PM",
+//                    "07:45 AM"
+//            };
+//
+//            for (String input : inputs) {
+//                LocalTime time = LocalTime.parse(input.toUpperCase(Locale.ENGLISH), formatter);
+//                System.out.println(input + " -> " + time);
+//            }
             if (args.length > 0 && isCorrectTime(args[0])) {
                 var elements = args[0].split(":");
                 if (elements.length == 2) {
@@ -41,19 +55,20 @@ public class Main {
         }
     }
 
-    private static BritishSpokenTime getBritishSpokenTime(int hour, int minute) {
+    private static SpokenTime getBritishSpokenTime(int hour, int minute) {
+        NumbersToWords numbersToWords = new NumbersToWords();
         List<OutputRule> outputRules = List.of(
-                new SpecialHourRule(),
-                new HourRule(),
-                new QuarterPastRule(),
-                new QuarterToRule(),
-                new HalfHourRule(),
-                new MinutePastRule(),
-                new MinuteToRule(),
-                new DefaultRule()
+                new SpecialHourRule(numbersToWords),
+                new HourRule(numbersToWords),
+                new QuarterPastRule(numbersToWords),
+                new QuarterToRule(numbersToWords),
+                new HalfHourRule(numbersToWords),
+                new MinutePastRule(numbersToWords),
+                new MinuteToRule(numbersToWords),
+                new DefaultRule(numbersToWords)
         );
 
-        return new BritishSpokenTime(outputRules, hour, minute);
+        return new SpokenTime(outputRules, hour, minute);
     }
 
     public static boolean isCorrectTime(String time) {

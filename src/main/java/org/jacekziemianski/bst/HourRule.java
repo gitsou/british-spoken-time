@@ -1,13 +1,19 @@
 package org.jacekziemianski.bst;
 
 public class HourRule implements OutputRule {
-    @Override
-    public boolean appliesTo(BritishSpokenTime bst) {
-        return bst.getMinute() == 0;
+    private final NumbersToWords numbersToWords;
+
+    public HourRule(NumbersToWords numbersToWords) {
+        this.numbersToWords = numbersToWords;
     }
 
     @Override
-    public String generate(BritishSpokenTime bst) {
-        return NumbersToWords.getHourWord(bst.getHour()) + " o'clock";
+    public boolean appliesTo(SpokenTime spokenTime) {
+        return spokenTime.getMinute() == 0;
+    }
+
+    @Override
+    public String generate(SpokenTime spokenTime) {
+        return numbersToWords.getHour(spokenTime.getHour()) + " o'clock";
     }
 }

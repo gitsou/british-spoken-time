@@ -1,7 +1,7 @@
 package org.jacekziemianski.bst;
 
 public interface OutputRule {
-    boolean appliesTo(BritishSpokenTime bst);
+    boolean appliesTo(SpokenTime bst);
 
-    String generate(BritishSpokenTime bst);
+    String generate(SpokenTime bst);
 }

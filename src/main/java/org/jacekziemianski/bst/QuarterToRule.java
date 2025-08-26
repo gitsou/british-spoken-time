@@ -1,13 +1,19 @@
 package org.jacekziemianski.bst;
 
 public class QuarterToRule implements OutputRule {
-    @Override
-    public boolean appliesTo(BritishSpokenTime bst) {
-        return bst.getMinute() == 45;
+    private final NumbersToWords numbersToWords;
+
+    public QuarterToRule(NumbersToWords numbersToWords) {
+        this.numbersToWords = numbersToWords;
     }
 
     @Override
-    public String generate(BritishSpokenTime bst) {
-        return "quarter to " + NumbersToWords.getNextHourWord(bst.getHour());
+    public boolean appliesTo(SpokenTime spokenTime) {
+        return spokenTime.getMinute() == 45;
+    }
+
+    @Override
+    public String generate(SpokenTime spokenTime) {
+        return "quarter to " + numbersToWords.getHour(spokenTime.getHour(1) % 12);
     }
 }

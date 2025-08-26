@@ -1,7 +1,14 @@
 package org.jacekziemianski.bst;
 
+import java.util.Map;
+
 public class NumbersToWords {
-    private static final String[] hourWords = {
+
+    private final Map<String, String> specialWords = Map.of(
+            "00:00", "midnight",
+            "12:00", "noon"
+    );
+    private final String[] hourWords = {
             "midnight",
             "one",
             "two",
@@ -14,9 +21,20 @@ public class NumbersToWords {
             "nine",
             "ten",
             "eleven",
-            "noon"
+            "twelve",
+            "thirteen",
+            "fourteen",
+            "fifteen",
+            "sixteen",
+            "seventeen",
+            "eighteen",
+            "nineteen",
+            "twenty",
+            "twenty-one",
+            "twenty-two",
+            "twenty-three"
     };
-    private static final String[] minuteWords = {
+    private final String[] minuteWords = {
             "zero",
             "one",
             "two",
@@ -79,27 +97,15 @@ public class NumbersToWords {
             "fifty-nine"
     };
 
-    public static String getHourWord(int hour) {
-        if (hour >= 0 && hour < hourWords.length) {
-            return hourWords[hour];
-        } else {
-            return "";
-        }
+    public String getHour(int hour) {
+        return hourWords[hour];
     }
 
-    public static String getNextHourWord(int hour) {
-        return getHourWord((hour + 1) % 12);
+    public String getMinute(int minute) {
+        return minuteWords[minute];
     }
 
-    public static String getMinuteWord(int minute) {
-        if (minute >= 0 && minute < minuteWords.length) {
-            return minuteWords[minute];
-        } else {
-            return "";
-        }
-    }
-
-    public static String getMinuteToWord(int minute) {
-        return getMinuteWord((30 - (minute - 30)) % 60);
+    public String getSpecialWord(String key) {
+        return specialWords.get(key);
     }
 }

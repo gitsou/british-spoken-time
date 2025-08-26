@@ -1,13 +1,19 @@
 package org.jacekziemianski.bst;
 
 public class DefaultRule implements OutputRule {
+    private final NumbersToWords numbersToWords;
+
+    public DefaultRule(NumbersToWords numbersToWords) {
+        this.numbersToWords = numbersToWords;
+    }
+
     @Override
-    public boolean appliesTo(BritishSpokenTime bst) {
+    public boolean appliesTo(SpokenTime spokenTime) {
         return true;
     }
 
     @Override
-    public String generate(BritishSpokenTime bst) {
-        return NumbersToWords.getHourWord(bst.getHour()) + " " + NumbersToWords.getMinuteWord(bst.getMinute());
+    public String generate(SpokenTime spokenTime) {
+        return numbersToWords.getHour(spokenTime.getHour()) + " " + numbersToWords.getMinute(spokenTime.getMinute());
     }
 }
