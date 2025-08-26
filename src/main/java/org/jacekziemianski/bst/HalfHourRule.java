@@ -1,10 +1,10 @@
 package org.jacekziemianski.bst;
 
 public class HalfHourRule implements OutputRule {
-    private final NumbersToWords numbersToWords;
+    private final BritishDictionaries britishDictionaries;
 
-    public HalfHourRule(NumbersToWords numbersToWords) {
-        this.numbersToWords = numbersToWords;
+    public HalfHourRule(BritishDictionaries britishDictionaries) {
+        this.britishDictionaries = britishDictionaries;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class HalfHourRule implements OutputRule {
 
     @Override
     public String generate(SpokenTime spokenTime) {
-        return "half past " + numbersToWords.getHour(spokenTime.getHour());
+        return "half past " + britishDictionaries.getHour(spokenTime.getHour());
     }
 }

@@ -1,10 +1,10 @@
 package org.jacekziemianski.bst;
 
 public class QuarterPastRule implements OutputRule {
-    private final NumbersToWords numbersToWords;
+    private final BritishDictionaries britishDictionaries;
 
-    public QuarterPastRule(NumbersToWords numbersToWords) {
-        this.numbersToWords = numbersToWords;
+    public QuarterPastRule(BritishDictionaries britishDictionaries) {
+        this.britishDictionaries = britishDictionaries;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class QuarterPastRule implements OutputRule {
 
     @Override
     public String generate(SpokenTime spokenTime) {
-        return "quarter past " + numbersToWords.getHour(spokenTime.getHour());
+        return "quarter past " + britishDictionaries.getHour(spokenTime.getHour());
     }
 }

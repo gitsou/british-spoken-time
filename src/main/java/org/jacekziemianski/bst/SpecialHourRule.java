@@ -1,10 +1,10 @@
 package org.jacekziemianski.bst;
 
 public class SpecialHourRule implements OutputRule {
-    private final NumbersToWords numbersToWords;
+    private final BritishDictionaries britishDictionaries;
 
-    public SpecialHourRule(NumbersToWords numbersToWords) {
-        this.numbersToWords = numbersToWords;
+    public SpecialHourRule(BritishDictionaries britishDictionaries) {
+        this.britishDictionaries = britishDictionaries;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class SpecialHourRule implements OutputRule {
 
     @Override
     public String generate(SpokenTime spokenTime) {
-        return numbersToWords.getSpecialWord(spokenTime.getTime());
+        return britishDictionaries.getSpecialWord(spokenTime.getTime());
     }
 }

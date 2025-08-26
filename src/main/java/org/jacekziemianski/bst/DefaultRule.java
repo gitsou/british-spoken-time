@@ -1,10 +1,10 @@
 package org.jacekziemianski.bst;
 
 public class DefaultRule implements OutputRule {
-    private final NumbersToWords numbersToWords;
+    private final BritishDictionaries britishDictionaries;
 
-    public DefaultRule(NumbersToWords numbersToWords) {
-        this.numbersToWords = numbersToWords;
+    public DefaultRule(BritishDictionaries britishDictionaries) {
+        this.britishDictionaries = britishDictionaries;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class DefaultRule implements OutputRule {
 
     @Override
     public String generate(SpokenTime spokenTime) {
-        return numbersToWords.getHour(spokenTime.getHour()) + " " + numbersToWords.getMinute(spokenTime.getMinute());
+        return britishDictionaries.getHour(spokenTime.getHour()) + " " + britishDictionaries.getMinute(spokenTime.getMinute());
     }
 }
