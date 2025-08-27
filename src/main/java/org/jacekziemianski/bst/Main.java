@@ -10,22 +10,32 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+            if (args.length == 0) {
+                System.out.println(getUsage());
+                return;
+            }
             var bst = getBritishSpokenTime();
             System.out.println(bst.getSpokenTime(args));
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
             log.error("Exception", e);
-            System.err.println("Unexpected error, please check logs for some details.");
-            System.out.print("""
-                    Usage: bst TIME
-                    
-                    Converts a given time into its British spoken form.
-                    
-                    Arguments:
-                      TIME   Time in hh:mm format (00:00 to 23:59, 24-hour clock).
-                             Example: bst 12:00 -> prints "noon"
-                    """);
-            System.exit(1);
+            System.out.println(getUsage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error, please check logs for more details.");
+            log.error("Exception", e);
         }
+    }
+
+    private static String getUsage() {
+        return """
+                Usage: bst TIME
+                
+                Converts a given time into its British spoken form.
+                
+                Arguments:
+                  TIME   Time in hh:mm format (00:00 to 23:59, 24-hour clock).
+                         Example: bst 12:00 -> prints "noon"
+                """;
     }
 
     private static SpokenTime getBritishSpokenTime() {

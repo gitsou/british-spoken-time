@@ -3,7 +3,7 @@ package org.jacekziemianski.bst;
 class TimeArgumentsParser implements ArgumentsParser {
     @Override
     public Time parse(String[] args) throws IllegalArgumentException {
-        if (args == null || args.length == 0) {
+        if (args == null) {
             throw new IllegalArgumentException("Expecting one TIME parameter.");
         }
         if (args.length == 1 && isCorrectTime(args[0])) {
