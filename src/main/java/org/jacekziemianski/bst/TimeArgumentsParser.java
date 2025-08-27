@@ -1,6 +1,6 @@
 package org.jacekziemianski.bst;
 
-class TimeArgumentsParser implements ArgumentsParser {
+public class TimeArgumentsParser implements ArgumentsParser {
     @Override
     public Time parse(String[] args) throws IllegalArgumentException {
         if (args == null) {

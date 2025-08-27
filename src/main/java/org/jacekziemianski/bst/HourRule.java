@@ -8,12 +8,12 @@ public class HourRule implements OutputRule {
     }
 
     @Override
-    public boolean appliesTo(SpokenTime spokenTime) {
-        return spokenTime.getMinute() == 0;
+    public boolean appliesTo(Time time) {
+        return time.getMinute() == 0;
     }
 
     @Override
-    public String generate(SpokenTime spokenTime) {
-        return britishDictionaries.getHour(spokenTime.getHour()) + " o'clock";
+    public String generate(Time time) {
+        return britishDictionaries.getHour(time.getHour()) + " o'clock";
     }
 }

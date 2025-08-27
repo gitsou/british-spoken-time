@@ -1,6 +1,6 @@
 package org.jacekziemianski.bst;
 
-class Time {
+public class Time {
     private final int hour;
     private final int minute;
 

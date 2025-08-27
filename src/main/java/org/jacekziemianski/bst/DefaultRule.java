@@ -8,12 +8,12 @@ public class DefaultRule implements OutputRule {
     }
 
     @Override
-    public boolean appliesTo(SpokenTime spokenTime) {
+    public boolean appliesTo(Time time) {
         return true;
     }
 
     @Override
-    public String generate(SpokenTime spokenTime) {
-        return britishDictionaries.getHour(spokenTime.getHour()) + " " + britishDictionaries.getMinute(spokenTime.getMinute());
+    public String generate(Time time) {
+        return britishDictionaries.getHour(time.getHour()) + " " + britishDictionaries.getMinute(time.getMinute());
     }
 }

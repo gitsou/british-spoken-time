@@ -8,12 +8,12 @@ public class MinutePastRule implements OutputRule {
     }
 
     @Override
-    public boolean appliesTo(SpokenTime spokenTime) {
-        return spokenTime.getMinute() % 5 == 0 && spokenTime.getMinute() < 30;
+    public boolean appliesTo(Time time) {
+        return time.getMinute() % 5 == 0 && time.getMinute() < 30;
     }
 
     @Override
-    public String generate(SpokenTime spokenTime) {
-        return britishDictionaries.getMinute(spokenTime.getMinute()) + " past " + britishDictionaries.getHour(spokenTime.getHour());
+    public String generate(Time time) {
+        return britishDictionaries.getMinute(time.getMinute()) + " past " + britishDictionaries.getHour(time.getHour());
     }
 }

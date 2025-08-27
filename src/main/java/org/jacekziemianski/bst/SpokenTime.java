@@ -13,26 +13,6 @@ public class SpokenTime {
         this.timeArgumentsParser = timeArgumentsParser;
     }
 
-    public int getHour() {
-        return time.getHour();
-    }
-
-    public int getHour(int addHours) {
-        return time.getHour(addHours);
-    }
-
-    public int getMinute() {
-        return time.getMinute();
-    }
-
-    public int getMinute(int addMinutes) {
-        return time.getMinute(addMinutes);
-    }
-
-    public String getTime() {
-        return time.getTime();
-    }
-
     public String getSpokenTime(String[] args) {
         if (spokenTime.isEmpty()) {
             generate(args);
@@ -45,9 +25,9 @@ public class SpokenTime {
         time = timeArgumentsParser.parse(args);
 
         spokenTime = outputRules.stream()
-                .filter(s -> s.appliesTo(this))
+                .filter(s -> s.appliesTo(time))
                 .findFirst()
-                .map(s -> s.generate(this))
+                .map(s -> s.generate(time))
                 .orElse("No rules where found to generate correct output");
     }
 

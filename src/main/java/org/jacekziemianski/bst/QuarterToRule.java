@@ -8,12 +8,12 @@ public class QuarterToRule implements OutputRule {
     }
 
     @Override
-    public boolean appliesTo(SpokenTime spokenTime) {
-        return spokenTime.getMinute() == 45;
+    public boolean appliesTo(Time time) {
+        return time.getMinute() == 45;
     }
 
     @Override
-    public String generate(SpokenTime spokenTime) {
-        return "quarter to " + britishDictionaries.getHour(spokenTime.getHour(1));
+    public String generate(Time time) {
+        return "quarter to " + britishDictionaries.getHour(time.getHour(1));
     }
 }

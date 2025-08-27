@@ -8,12 +8,12 @@ public class HalfHourRule implements OutputRule {
     }
 
     @Override
-    public boolean appliesTo(SpokenTime spokenTime) {
-        return spokenTime.getMinute() == 30;
+    public boolean appliesTo(Time time) {
+        return time.getMinute() == 30;
     }
 
     @Override
-    public String generate(SpokenTime spokenTime) {
-        return "half past " + britishDictionaries.getHour(spokenTime.getHour());
+    public String generate(Time time) {
+        return "half past " + britishDictionaries.getHour(time.getHour());
     }
 }
