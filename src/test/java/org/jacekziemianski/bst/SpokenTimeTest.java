@@ -3,7 +3,6 @@ package org.jacekziemianski.bst;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,99 +12,7 @@ class SpokenTimeTest {
 
     @BeforeEach
     void setUp() {
-        final Map<String, String> specialWords = Map.of(
-                "00:00", "midnight",
-                "12:00", "noon"
-        );
-        final String[] hourWords = {
-                "midnight",
-                "one",
-                "two",
-                "three",
-                "four",
-                "five",
-                "six",
-                "seven",
-                "eight",
-                "nine",
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen",
-                "fourteen",
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen",
-                "twenty",
-                "twenty-one",
-                "twenty-two",
-                "twenty-three"
-        };
-        final String[] minuteWords = {
-                "zero",
-                "one",
-                "two",
-                "three",
-                "four",
-                "five",
-                "six",
-                "seven",
-                "eight",
-                "nine",
-                "ten",
-                "eleven",
-                "twelve",
-                "thirteen",
-                "fourteen",
-                "fifteen",
-                "sixteen",
-                "seventeen",
-                "eighteen",
-                "nineteen",
-                "twenty",
-                "twenty-one",
-                "twenty-two",
-                "twenty-three",
-                "twenty-four",
-                "twenty-five",
-                "twenty-six",
-                "twenty-seven",
-                "twenty-eight",
-                "twenty-nine",
-                "thirty",
-                "thirty-one",
-                "thirty-two",
-                "thirty-three",
-                "thirty-four",
-                "thirty-five",
-                "thirty-six",
-                "thirty-seven",
-                "thirty-eight",
-                "thirty-nine",
-                "forty",
-                "forty-one",
-                "forty-two",
-                "forty-three",
-                "forty-four",
-                "forty-five",
-                "forty-six",
-                "forty-seven",
-                "forty-eight",
-                "forty-nine",
-                "fifty",
-                "fifty-one",
-                "fifty-two",
-                "fifty-three",
-                "fifty-four",
-                "fifty-five",
-                "fifty-six",
-                "fifty-seven",
-                "fifty-eight",
-                "fifty-nine"
-        };
-        BritishDictionaries britishDictionaries = new BritishDictionaries(specialWords, hourWords, minuteWords);
+        BritishDictionaries britishDictionaries = new BritishDictionaries();
         outputRules = List.of(
                 new SpecialHourRule(britishDictionaries),
                 new HourRule(britishDictionaries),

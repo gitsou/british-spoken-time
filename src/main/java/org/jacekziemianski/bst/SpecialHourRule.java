@@ -1,7 +1,7 @@
 package org.jacekziemianski.bst;
 
 public class SpecialHourRule implements OutputRule {
-    private final BritishDictionaries britishDictionaries;
+    private final Dictionaries britishDictionaries;
 
     public SpecialHourRule(BritishDictionaries britishDictionaries) {
         this.britishDictionaries = britishDictionaries;

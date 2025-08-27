@@ -1,7 +1,7 @@
 package org.jacekziemianski.bst;
 
 public class HalfHourRule implements OutputRule {
-    private final BritishDictionaries britishDictionaries;
+    private final Dictionaries britishDictionaries;
 
     public HalfHourRule(BritishDictionaries britishDictionaries) {
         this.britishDictionaries = britishDictionaries;

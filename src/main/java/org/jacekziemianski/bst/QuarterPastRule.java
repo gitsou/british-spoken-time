@@ -1,7 +1,7 @@
 package org.jacekziemianski.bst;
 
 public class QuarterPastRule implements OutputRule {
-    private final BritishDictionaries britishDictionaries;
+    private final Dictionaries britishDictionaries;
 
     public QuarterPastRule(BritishDictionaries britishDictionaries) {
         this.britishDictionaries = britishDictionaries;

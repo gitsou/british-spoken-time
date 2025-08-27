@@ -1,7 +1,7 @@
 package org.jacekziemianski.bst;
 
 public class MinutePastRule implements OutputRule {
-    private final BritishDictionaries britishDictionaries;
+    private final Dictionaries britishDictionaries;
 
     public MinutePastRule(BritishDictionaries britishDictionaries) {
         this.britishDictionaries = britishDictionaries;
