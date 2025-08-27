@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Fallback rule that applies when no other rules match.
+ */
 public class DefaultRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

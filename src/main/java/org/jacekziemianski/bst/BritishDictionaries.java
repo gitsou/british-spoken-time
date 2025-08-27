@@ -2,6 +2,9 @@ package org.jacekziemianski.bst;
 
 import java.util.Map;
 
+/**
+ * Dictionary for British spoken time.
+ */
 public class BritishDictionaries implements Dictionaries {
     final Map<String, String> specialWords = Map.of(
             "00:00", "midnight",

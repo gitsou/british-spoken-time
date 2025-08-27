@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Rule for times with minutes greater the 30 (e.g., 10:33).
+ */
 public class MinuteToRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

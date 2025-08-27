@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Rule to match special cases like "midnight" or "noon"
+ */
 public class SpecialHourRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Rule for full hours.
+ */
 public class HourRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

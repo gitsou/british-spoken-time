@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Rule for times when the minute is exactly 30 (e.g., 10:30).
+ */
 public class HalfHourRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

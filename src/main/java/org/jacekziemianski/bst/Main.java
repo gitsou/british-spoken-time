@@ -15,7 +15,7 @@ public class Main {
                 return;
             }
             var bst = getBritishSpokenTime();
-            System.out.println(bst.getSpokenTime(args));
+            System.out.println(bst.generateSpokenTime(args));
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             log.error("Exception", e);

@@ -1,5 +1,8 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Rule for times that are 15 minutes after the full hour (e.g., 10:15).
+ */
 public class QuarterPastRule implements OutputRule {
     private final Dictionaries britishDictionaries;
 

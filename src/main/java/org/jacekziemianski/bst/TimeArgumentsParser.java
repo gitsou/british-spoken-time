@@ -1,6 +1,16 @@
 package org.jacekziemianski.bst;
 
+/**
+ * Parses command-line arguments into a Time object.
+ */
 public class TimeArgumentsParser implements ArgumentsParser {
+    /**
+     * Parses a single TIME argument in "HH:mm" format.
+     *
+     * @param args command-line arguments
+     * @return a Time object
+     * @throws IllegalArgumentException if the argument is missing or invalid
+     */
     @Override
     public Time parse(String[] args) throws IllegalArgumentException {
         if (args == null) {
