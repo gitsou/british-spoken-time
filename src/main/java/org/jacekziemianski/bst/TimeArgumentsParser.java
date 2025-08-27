@@ -3,6 +3,9 @@ package org.jacekziemianski.bst;
 class TimeArgumentsParser implements ArgumentsParser {
     @Override
     public Time parse(String[] args) throws IllegalArgumentException {
+        if (args == null || args.length == 0) {
+            throw new IllegalArgumentException("Expecting one TIME parameter.");
+        }
         if (args.length == 1 && isCorrectTime(args[0])) {
             var elements = args[0].split(":");
             if (elements.length == 2) {
