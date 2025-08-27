@@ -14,6 +14,6 @@ public class QuarterToRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return "quarter to " + britishDictionaries.getHour(time.getHour(1));
+        return "quarter to " + britishDictionaries.getHourWord(time.getAdjustedHour(1));
     }
 }

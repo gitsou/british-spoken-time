@@ -1,9 +1,9 @@
 package org.jacekziemianski.bst;
 
 public interface Dictionaries {
-    String getHour(int hour);
+    String getHourWord(int hour);
 
-    String getMinute(int minute);
+    String getMinuteWord(int minute);
 
     String getSpecialWord(String key);
 }

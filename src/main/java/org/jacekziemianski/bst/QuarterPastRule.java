@@ -14,6 +14,6 @@ public class QuarterPastRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return "quarter past " + britishDictionaries.getHour(time.getHour());
+        return "quarter past " + britishDictionaries.getHourWord(time.getHour());
     }
 }

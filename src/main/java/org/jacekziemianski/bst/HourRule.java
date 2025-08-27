@@ -14,6 +14,6 @@ public class HourRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return britishDictionaries.getHour(time.getHour()) + " o'clock";
+        return britishDictionaries.getHourWord(time.getHour()) + " o'clock";
     }
 }

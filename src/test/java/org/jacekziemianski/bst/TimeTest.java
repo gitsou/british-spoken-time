@@ -24,58 +24,58 @@ class TimeTest {
     }
 
     @Test
-    void testGetHour() {
+    void testGetAdjustedHour() {
         assertEquals(10, new Time(10, 16).getHour());
     }
 
     @Test
-    void testGetHourPlus1() {
-        assertEquals(11, new Time(10, 16).getHour(1));
+    void testGetAdjustedHourPlus1() {
+        assertEquals(11, new Time(10, 16).getAdjustedHour(1));
     }
 
     @Test
-    void testGetHourMinus2() {
-        assertEquals(23, new Time(1, 16).getHour(-2));
+    void testGetAdjustedHourMinus2() {
+        assertEquals(23, new Time(1, 16).getAdjustedHour(-2));
     }
 
     @Test
-    void testGetHourMinus27() {
-        assertEquals(22, new Time(1, 16).getHour(-27));
+    void testGetAdjustedHourMinus27() {
+        assertEquals(22, new Time(1, 16).getAdjustedHour(-27));
     }
 
     @Test
-    void testGetHourMinus23() {
-        assertEquals(0, new Time(23, 16).getHour(-23));
+    void testGetAdjustedHourMinus23() {
+        assertEquals(0, new Time(23, 16).getAdjustedHour(-23));
     }
 
     @Test
-    void testGetMinute() {
+    void testGetAdjustedMinute() {
         assertEquals(16, new Time(10, 16).getMinute());
     }
 
     @Test
-    void testGetMinutePlus1() {
-        assertEquals(17, new Time(10, 16).getMinute(1));
+    void testGetAdjustedMinutePlus1() {
+        assertEquals(17, new Time(10, 16).getAdjustedMinute(1));
     }
 
     @Test
-    void testGetMinutePlus5() {
-        assertEquals(3, new Time(10, 58).getMinute(5));
+    void testGetAdjustedMinutePlus5() {
+        assertEquals(3, new Time(10, 58).getAdjustedMinute(5));
     }
 
     @Test
-    void testGetMinuteMinus7() {
-        assertEquals(58, new Time(10, 5).getMinute(-7));
+    void testGetAdjustedMinuteMinus7() {
+        assertEquals(58, new Time(10, 5).getAdjustedMinute(-7));
     }
 
     @Test
-    void testGetMinuteMinus77() {
-        assertEquals(48, new Time(10, 5).getMinute(-77));
+    void testGetAdjustedMinuteMinus77() {
+        assertEquals(48, new Time(10, 5).getAdjustedMinute(-77));
     }
 
     @Test
-    void testGetMinuteMinus30() {
-        assertEquals(25, new Time(10, 55).getMinute(-30));
+    void testGetAdjustedMinuteMinus30() {
+        assertEquals(25, new Time(10, 55).getAdjustedMinute(-30));
     }
 
     @Test

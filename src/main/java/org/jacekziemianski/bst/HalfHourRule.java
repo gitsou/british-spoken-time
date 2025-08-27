@@ -14,6 +14,6 @@ public class HalfHourRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return "half past " + britishDictionaries.getHour(time.getHour());
+        return "half past " + britishDictionaries.getHourWord(time.getHour());
     }
 }

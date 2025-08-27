@@ -13,26 +13,26 @@ public class Time {
     }
 
     public int getHour() {
-        return getHour(0);
+        return hour;
     }
 
-    public int getHour(int addHours) {
-        if (hour + addHours >= 0) {
-            return (hour + addHours) % 24;
+    public int getAdjustedHour(int offset) {
+        if (hour + offset >= 0) {
+            return (hour + offset) % 24;
         } else {
-            return 24 + ((hour + addHours) % 24);
+            return 24 + ((hour + offset) % 24);
         }
     }
 
     public int getMinute() {
-        return getMinute(0);
+        return minute;
     }
 
-    public int getMinute(int addMinutes) {
-        if (minute + addMinutes >= 0) {
-            return (minute + addMinutes) % 60;
+    public int getAdjustedMinute(int offset) {
+        if (minute + offset >= 0) {
+            return (minute + offset) % 60;
         } else {
-            return 60 + ((minute + addMinutes) % 60);
+            return 60 + ((minute + offset) % 60);
         }
     }
 

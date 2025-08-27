@@ -14,6 +14,6 @@ public class DefaultRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return britishDictionaries.getHour(time.getHour()) + " " + britishDictionaries.getMinute(time.getMinute());
+        return britishDictionaries.getHourWord(time.getHour()) + " " + britishDictionaries.getMinuteWord(time.getMinute());
     }
 }

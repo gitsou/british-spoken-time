@@ -14,73 +14,73 @@ class BritishDictionariesTest {
     }
 
     @Test
-    void getHourMidnight() {
-        assertEquals("midnight", britishDictionaries.getHour(0));
+    void getHourWordMidnight() {
+        assertEquals("midnight", britishDictionaries.getHourWord(0));
     }
 
     @Test
-    void getHour1() {
-        assertEquals("one", britishDictionaries.getHour(1));
+    void getHourWord1() {
+        assertEquals("one", britishDictionaries.getHourWord(1));
     }
 
     @Test
-    void getHour12() {
-        assertEquals("twelve", britishDictionaries.getHour(12));
+    void getHourWord12() {
+        assertEquals("twelve", britishDictionaries.getHourWord(12));
     }
 
     @Test
-    void getHour23() {
-        assertEquals("eleven", britishDictionaries.getHour(23));
+    void getHourWord23() {
+        assertEquals("eleven", britishDictionaries.getHourWord(23));
     }
 
     @Test
-    void getHour25() {
-        assertEquals("one", britishDictionaries.getHour(25));
+    void getHourWord25() {
+        assertEquals("one", britishDictionaries.getHourWord(25));
     }
 
     @Test
-    void getHourNegativeNumber() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getHour(-1));
+    void getHourWordNegativeNumber() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getHourWord(-1));
     }
 
     @Test
-    void getMinute0() {
-        assertEquals("zero", britishDictionaries.getMinute(0));
+    void getMinuteWord0() {
+        assertEquals("zero", britishDictionaries.getMinuteWord(0));
     }
 
     @Test
-    void getMinute1() {
-        assertEquals("one", britishDictionaries.getMinute(1));
+    void getMinuteWord1() {
+        assertEquals("one", britishDictionaries.getMinuteWord(1));
     }
 
     @Test
-    void getMinute12() {
-        assertEquals("twelve", britishDictionaries.getMinute(12));
+    void getMinuteWord12() {
+        assertEquals("twelve", britishDictionaries.getMinuteWord(12));
     }
 
     @Test
-    void getMinute23() {
-        assertEquals("twenty-three", britishDictionaries.getMinute(23));
+    void getMinuteWord23() {
+        assertEquals("twenty-three", britishDictionaries.getMinuteWord(23));
     }
 
     @Test
-    void getMinute25() {
-        assertEquals("twenty-five", britishDictionaries.getMinute(25));
+    void getMinuteWord25() {
+        assertEquals("twenty-five", britishDictionaries.getMinuteWord(25));
     }
 
     @Test
-    void getMinute59() {
-        assertEquals("fifty-nine", britishDictionaries.getMinute(59));
+    void getMinuteWord59() {
+        assertEquals("fifty-nine", britishDictionaries.getMinuteWord(59));
     }
 
     @Test
-    void getMinuteNegativeNumber() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getMinute(-1));
+    void getMinuteWordNegativeNumber() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getMinuteWord(-1));
     }
 
     @Test
-    void getMinuteToBigNumber() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getMinute(70));
+    void getMinuteWordToBigNumber() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> britishDictionaries.getMinuteWord(70));
     }
 
     @Test

@@ -14,6 +14,6 @@ public class MinuteToRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return britishDictionaries.getMinute(30 - time.getMinute(-30)) + " to " + britishDictionaries.getHour(time.getHour(+1));
+        return britishDictionaries.getMinuteWord(30 - time.getAdjustedMinute(-30)) + " to " + britishDictionaries.getHourWord(time.getAdjustedHour(+1));
     }
 }

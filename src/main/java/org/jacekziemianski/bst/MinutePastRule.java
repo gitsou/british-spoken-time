@@ -14,6 +14,6 @@ public class MinutePastRule implements OutputRule {
 
     @Override
     public String generate(Time time) {
-        return britishDictionaries.getMinute(time.getMinute()) + " past " + britishDictionaries.getHour(time.getHour());
+        return britishDictionaries.getMinuteWord(time.getMinute()) + " past " + britishDictionaries.getHourWord(time.getHour());
     }
 }

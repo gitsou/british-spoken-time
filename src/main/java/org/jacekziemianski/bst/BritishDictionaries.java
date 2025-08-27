@@ -85,7 +85,7 @@ public class BritishDictionaries implements Dictionaries {
             "fifty-nine"
     };
 
-    public String getHour(int hour) {
+    public String getHourWord(int hour) {
         if (hour == 0) {
             return "midnight";
         } else if (hour > 12) {
@@ -95,7 +95,7 @@ public class BritishDictionaries implements Dictionaries {
         }
     }
 
-    public String getMinute(int minute) {
+    public String getMinuteWord(int minute) {
         return minuteWords[minute];
     }
 
