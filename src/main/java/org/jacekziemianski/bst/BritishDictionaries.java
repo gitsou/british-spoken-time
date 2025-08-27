@@ -8,7 +8,7 @@ public class BritishDictionaries implements Dictionaries {
             "12:00", "noon"
     );
     final String[] hourWords = {
-            "midnight",
+            "zero",
             "one",
             "two",
             "three",
@@ -97,7 +97,13 @@ public class BritishDictionaries implements Dictionaries {
     };
 
     public String getHour(int hour) {
-        return hourWords[hour];
+        if (hour == 0) {
+            return "midnight";
+        } else if (hour > 12) {
+            return hourWords[hour % 12];
+        } else {
+            return hourWords[hour];
+        }
     }
 
     public String getMinute(int minute) {
