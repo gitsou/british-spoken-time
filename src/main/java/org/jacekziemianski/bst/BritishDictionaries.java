@@ -21,17 +21,6 @@ public class BritishDictionaries implements Dictionaries {
             "ten",
             "eleven",
             "twelve",
-            "thirteen",
-            "fourteen",
-            "fifteen",
-            "sixteen",
-            "seventeen",
-            "eighteen",
-            "nineteen",
-            "twenty",
-            "twenty-one",
-            "twenty-two",
-            "twenty-three"
     };
     final String[] minuteWords = {
             "zero",

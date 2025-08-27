@@ -48,6 +48,11 @@ class TimeTest {
     }
 
     @Test
+    void testGetHourSub23() {
+        assertEquals(0, new Time(23, 16).getHour(-23));
+    }
+
+    @Test
     void testGetMinute() {
         assertEquals(16, new Time(10, 16).getMinute());
     }
@@ -75,6 +80,11 @@ class TimeTest {
     @Test
     void testGetMinuteSub77() {
         assertEquals(48, new Time(10, 5).getMinute(-77));
+    }
+
+    @Test
+    void testGetMinuteSub30() {
+        assertEquals(25, new Time(10, 55).getMinute(-30));
     }
 
     @Test

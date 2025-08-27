@@ -17,7 +17,7 @@ class Time {
     }
 
     public int getHour(int addHours) {
-        if (addHours >= 0) {
+        if (hour + addHours >= 0) {
             return (hour + addHours) % 24;
         } else {
             return 24 + ((hour + addHours) % 24);
@@ -29,7 +29,7 @@ class Time {
     }
 
     public int getMinute(int addMinutes) {
-        if (addMinutes >= 0) {
+        if (minute + addMinutes >= 0) {
             return (minute + addMinutes) % 60;
         } else {
             return 60 + ((minute + addMinutes) % 60);
