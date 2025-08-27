@@ -145,4 +145,28 @@ class SpokenTimeTest {
         String[] args = {"23:55"};
         assertEquals("five to midnight", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
+
+    @org.junit.jupiter.api.Test
+    void testGetSpokenTime2500() {
+        String[] args = {"25:00"};
+        assertThrows(IllegalArgumentException.class, () -> {
+            new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args);
+        });
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetSpokenTimeAabb() {
+        String[] args = {"aabbccdd"};
+        assertThrows(IllegalArgumentException.class, () -> {
+            new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args);
+        });
+    }
+
+    @org.junit.jupiter.api.Test
+    void testGetSpokenTime0000_() {
+        String[] args = {"0000:"};
+        assertThrows(IllegalArgumentException.class, () -> {
+            new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args);
+        });
+    }
 }

@@ -15,6 +15,15 @@ public class Main {
         } catch (Exception e) {
             log.error("Exception", e);
             System.err.println("Unexpected error, please check logs for some details.");
+            System.out.print("""
+                    Usage: bst TIME
+                    
+                    Converts a given time into its British spoken form.
+                    
+                    Arguments:
+                      TIME   Time in hh:mm format (00:00 to 23:59, 24-hour clock).
+                             Example: bst 12:00 -> prints "noon"
+                    """);
             System.exit(1);
         }
     }
