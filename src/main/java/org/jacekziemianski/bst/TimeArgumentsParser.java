@@ -10,14 +10,8 @@ class TimeArgumentsParser implements ArgumentsParser {
                 int minute = Integer.parseInt(elements[1]);
                 if (hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59) {
                     return new Time(hour, minute);
-                } else {
-                    System.err.println("Incorrect values in TIME parameter.\n");
                 }
-            } else {
-                System.err.println("Incorrect ':' numbers in TIME parameter.\n");
             }
-        } else {
-            System.err.println("Incorrect TIME parameter.\n");
         }
 
         throw new IllegalArgumentException("Incorrect TIME parameter.");

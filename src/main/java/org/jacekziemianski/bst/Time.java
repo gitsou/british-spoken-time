@@ -4,7 +4,10 @@ class Time {
     private final int hour;
     private final int minute;
 
-    public Time(int hour, int minute) {
+    public Time(int hour, int minute) throws IllegalArgumentException {
+        if (hour > 23 || hour < 0 || minute > 59 || minute < 0) {
+            throw new IllegalArgumentException("Incorrect arguments (hour=" + hour + ", minute=" + minute + ") for Time class.");
+        }
         this.hour = hour;
         this.minute = minute;
     }
@@ -14,7 +17,11 @@ class Time {
     }
 
     public int getHour(int addHours) {
-        return (hour + addHours) % 24;
+        if (addHours >= 0) {
+            return (hour + addHours) % 24;
+        } else {
+            return 24 + ((hour + addHours) % 24);
+        }
     }
 
     public int getMinute() {
@@ -22,7 +29,11 @@ class Time {
     }
 
     public int getMinute(int addMinutes) {
-        return (minute + addMinutes) % 60;
+        if (addMinutes >= 0) {
+            return (minute + addMinutes) % 60;
+        } else {
+            return 60 + ((minute + addMinutes) % 60);
+        }
     }
 
     public String getTime() {
