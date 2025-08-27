@@ -11,44 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a", Locale.ENGLISH);
-//
-//
-//            String[] inputs = {
-//                    "12:00 noon",
-//                    "12:00 midnight",
-//                    "03:15 PM",
-//                    "07:45 AM"
-//            };
-//
-//            for (String input : inputs) {
-//                LocalTime time = LocalTime.parse(input.toUpperCase(Locale.ENGLISH), formatter);
-//                System.out.println(input + " -> " + time);
-//            }
-            if (args.length > 0 && isCorrectTime(args[0])) {
-                var elements = args[0].split(":");
-                if (elements.length == 2) {
-                    int hour = Integer.parseInt(elements[0]);
-                    int minute = Integer.parseInt(elements[1]);
-                    if (hour >= 0 && hour <= 12 && minute >= 0 && minute <= 59) {
-                        var bst = getBritishSpokenTime(hour, minute);
-                        System.out.println(bst);
-                        return;
-                    } else {
-                        System.out.println("Incorrect TIME parameter.\n");
-                    }
-                }
-            }
-            System.out.print("""
-                    Usage: bst TIME
-                    
-                    Converts a given time into its British spoken form.
-                    
-                    Arguments:
-                      TIME   Time in hh:mm format (00:00 to 12:59, 12-hour clock).
-                             Example: bst 12:00 -> prints "noon"
-                    """);
-
+            var bst = getBritishSpokenTime();
+            System.out.println(bst.getSpokenTime(args));
         } catch (Exception e) {
             log.error("Exception", e);
             System.err.println("Unexpected error, please check logs for some details.");
@@ -56,7 +20,7 @@ public class Main {
         }
     }
 
-    private static SpokenTime getBritishSpokenTime(int hour, int minute) {
+    private static SpokenTime getBritishSpokenTime() {
         BritishDictionaries britishDictionaries = getBritishDictionaries();
         List<OutputRule> outputRules = List.of(
                 new SpecialHourRule(britishDictionaries),
@@ -68,8 +32,7 @@ public class Main {
                 new MinuteToRule(britishDictionaries),
                 new DefaultRule(britishDictionaries)
         );
-
-        return new SpokenTime(outputRules, hour, minute);
+        return new SpokenTime(outputRules, new TimeArgumentsParser());
     }
 
     private static BritishDictionaries getBritishDictionaries() {
@@ -166,9 +129,5 @@ public class Main {
                 "fifty-nine"
         };
         return new BritishDictionaries(specialWords, hourWords, minuteWords);
-    }
-
-    public static boolean isCorrectTime(String time) {
-        return time.matches("\\d{1,2}:\\d\\d");
     }
 }

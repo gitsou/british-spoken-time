@@ -3,40 +3,48 @@ package org.jacekziemianski.bst;
 import java.util.List;
 
 public class SpokenTime {
-    private final int hour;
-    private final int minute;
-    private final String output;
+    private Time time;
+    private final TimeArgumentsParser timeArgumentsParser;
+    private String spokenTime = "";
     private final List<OutputRule> outputRules;
 
-    public SpokenTime(List<OutputRule> outputRules, int hour, int minute) {
+    public SpokenTime(List<OutputRule> outputRules, TimeArgumentsParser timeArgumentsParser) {
         this.outputRules = outputRules;
-        this.hour = hour;
-        this.minute = minute;
-        this.output = generateSpokenTime();
+        this.timeArgumentsParser = timeArgumentsParser;
     }
 
     public int getHour() {
-        return hour;
+        return time.getHour();
     }
 
-    public int getHour(int add) {
-        return (hour + add) % 24;
+    public int getHour(int addHours) {
+        return time.getHour(addHours);
     }
 
     public int getMinute() {
-        return minute;
+        return time.getMinute();
     }
 
-    public int getMinute(int add) {
-        return (minute + add) % 60;
+    public int getMinute(int addMinutes) {
+        return time.getMinute(addMinutes);
     }
 
     public String getTime() {
-        return String.format("%02d:%02d", hour, minute);
+        return time.getTime();
     }
 
-    public String generateSpokenTime() {
-        return outputRules.stream()
+    public String getSpokenTime(String[] args) {
+        if (spokenTime.isEmpty()) {
+            generate(args);
+        }
+
+        return spokenTime;
+    }
+
+    private void generate(String[] args) {
+        time = timeArgumentsParser.parse(args);
+
+        spokenTime = outputRules.stream()
                 .filter(s -> s.appliesTo(this))
                 .findFirst()
                 .map(s -> s.generate(this))
@@ -45,6 +53,6 @@ public class SpokenTime {
 
     @Override
     public String toString() {
-        return output;
+        return spokenTime;
     }
 }

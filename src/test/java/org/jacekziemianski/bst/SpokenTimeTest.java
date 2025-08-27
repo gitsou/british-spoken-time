@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SpokenTimeTest {
     private List<OutputRule> outputRules;
+    private TimeArgumentsParser timeArgumentsParser;
 
     @BeforeEach
     void setUp() {
@@ -115,90 +116,108 @@ class SpokenTimeTest {
                 new MinuteToRule(britishDictionaries),
                 new DefaultRule(britishDictionaries)
         );
+        timeArgumentsParser = new TimeArgumentsParser();
     }
 
     @org.junit.jupiter.api.Test
     void testToString0100() {
-        assertEquals("one o'clock", new SpokenTime(outputRules, 1, 0).toString());
+        String[] args = {"1:00"};
+        assertEquals("one o'clock", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0205() {
-        assertEquals("five past two", new SpokenTime(outputRules, 2, 5).toString());
+        String[] args = {"02:05"};
+        assertEquals("five past two", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0310() {
-        assertEquals("ten past three", new SpokenTime(outputRules, 3, 10).toString());
+        String[] args = {"3:10"};
+        assertEquals("ten past three", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0415() {
-        assertEquals("quarter past four", new SpokenTime(outputRules, 4, 15).toString());
+        String[] args = {"4:15"};
+        assertEquals("quarter past four", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0520() {
-        assertEquals("twenty past five", new SpokenTime(outputRules, 5, 20).toString());
+        String[] args = {"05:20"};
+        assertEquals("twenty past five", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0625() {
-        assertEquals("twenty-five past six", new SpokenTime(outputRules, 6, 25).toString());
+        String[] args = {"06:25"};
+        assertEquals("twenty-five past six", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0632() {
-        assertEquals("six thirty-two", new SpokenTime(outputRules, 6, 32).toString());
+        String[] args = {"6:32"};
+        assertEquals("six thirty-two", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0730() {
-        assertEquals("half past seven", new SpokenTime(outputRules, 7, 30).toString());
+        String[] args = {"07:30"};
+        assertEquals("half past seven", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0735() {
-        assertEquals("twenty-five to eight", new SpokenTime(outputRules, 7, 35).toString());
+        String[] args = {"07:35"};
+        assertEquals("twenty-five to eight", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0840() {
-        assertEquals("twenty to nine", new SpokenTime(outputRules, 8, 40).toString());
+        String[] args = {"8:40"};
+        assertEquals("twenty to nine", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0945() {
-        assertEquals("quarter to ten", new SpokenTime(outputRules, 9, 45).toString());
+        String[] args = {"9:45"};
+        assertEquals("quarter to ten", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString1050() {
-        assertEquals("ten to eleven", new SpokenTime(outputRules, 10, 50).toString());
+        String[] args = {"10:50"};
+        assertEquals("ten to eleven", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString1155() {
-        assertEquals("five to twelve", new SpokenTime(outputRules, 11, 55).toString());
+        String[] args = {"11:55"};
+        assertEquals("five to twelve", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0000() {
-        assertEquals("midnight", new SpokenTime(outputRules, 0, 0).toString());
+        String[] args = {"00:00"};
+        assertEquals("midnight", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString1200() {
-        assertEquals("noon", new SpokenTime(outputRules, 12, 0).toString());
+        String[] args = {"12:00"};
+        assertEquals("noon", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString1245() {
-        assertEquals("quarter to one", new SpokenTime(outputRules, 12, 45).toString());
+        String[] args = {"12:45"};
+        assertEquals("quarter to one", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 
     @org.junit.jupiter.api.Test
     void testToString0015() {
-        assertEquals("quarter past midnight", new SpokenTime(outputRules, 0, 15).toString());
+        String[] args = {"0:15"};
+        assertEquals("quarter past midnight", new SpokenTime(outputRules, timeArgumentsParser).getSpokenTime(args));
     }
 }
